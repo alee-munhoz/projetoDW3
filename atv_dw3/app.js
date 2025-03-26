@@ -2,10 +2,8 @@ const express = require('express');
 const app = express();
 const port = 4800;
 
-// Middleware para parsear os dados enviados via JSON
 app.use(express.json());
 
-// Rota para calcular o IMC
 app.post('/imc', (req, res) => {
     const { peso, altura } = req.body;
 
@@ -29,7 +27,6 @@ app.post('/imc', (req, res) => {
     res.json({ imc, classificacao });
 });
 
-// Rota para calcular a média e aprovação
 app.post('/notas', (req, res) => {
     const { p1, p2 } = req.body;
 
@@ -43,7 +40,6 @@ app.post('/notas', (req, res) => {
     res.json({ media, status });
 });
 
-// Rota para converter reais para dólares
 app.post('/dolar', (req, res) => {
     const { r, d } = req.body;
 
@@ -56,7 +52,6 @@ app.post('/dolar', (req, res) => {
     res.json({ dolares });
 });
 
-// Inicia o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
